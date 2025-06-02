@@ -1,5 +1,5 @@
 
-package Ejercicio1Colas;
+package Colas.Ejercicio1Colas;
 
 public interface colas {
     
