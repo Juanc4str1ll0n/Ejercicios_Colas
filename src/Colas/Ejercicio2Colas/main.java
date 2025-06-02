@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author juanc
+ * @author daniel
  */
 public class main {
 
@@ -20,6 +20,11 @@ public class main {
         ImplementacionCola app = new ImplementacionCola();
         String opcion = "";
         while(opcion != "6"){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Error en pausa: " + e.getMessage());
+            }
             System.out.println("-----MENU Atención a clientes en una fila-----\n");
             System.out.println("1. Agregar Cliente.");
             System.out.println("2. Atender al siguiente cliente.");
@@ -33,7 +38,8 @@ public class main {
             if (opcion.equals("1")){
                 System.out.println("Ingrese el nombre del cliente");
                 String nombre = scan.nextLine();
-                app.agregarCliente(nombre);
+                String nombreDef = nombre.substring(0, 1).toUpperCase()+nombre.substring(1).toLowerCase();
+                app.agregarCliente(nombreDef);
                 System.out.println("Cliente agregado\n");
             }else if(opcion.equals("2")){
                 Cliente atendido = app.atenderCliente();
@@ -51,11 +57,13 @@ public class main {
             }else if(opcion.endsWith("5")){
                 System.out.println("El siguiente cliente es: "+app.verSiguiente().getNombre()+"\n");
             }else if(opcion.equals("6")){
-                System.out.println("Gracias por usar el programa.");
+                break;
             }else{
                 System.out.println("Opción no válida");
             }
         }
+        System.out.println("Gracias por usar el programa.");
+        scan.close();
     }
     
 }
