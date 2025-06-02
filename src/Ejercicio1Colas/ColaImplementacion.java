@@ -7,29 +7,81 @@ package Ejercicio1Colas;
 
 public class ColaImplementacion implements colas{
 
+    
+    //clase nodo que guarda libro
+    private class Nodo{
+        Libro libro;
+        Nodo siguiente;
+        
+        
+        Nodo(Libro libro){
+            this.libro = libro;
+            this.siguiente = null;
+        }
+        
+    }
+    
+    private Nodo inicio;
+    private Nodo fin;
+    private int size;
+    
+    public ColaImplementacion(){
+        this.inicio = null;
+        this.fin = null;
+        this.size = 0;
+    }
+    
+    
     @Override
     public void encolar(Libro libro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Nodo nuevo = new Nodo(libro);
+        
+        if(isVacia()){
+            inicio = nuevo;
+            fin = nuevo;
+        }else{
+            fin.siguiente = nuevo;
+            fin = nuevo;
+        }
+        size++;
     }
 
     @Override
     public void desencolar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        if(isVacia()){
+            System.out.println("La cola esta vacia");
+            return;
+        }
+        
+        inicio = inicio.siguiente;
+        size--;
+        
+        if(inicio == null){
+            fin = null;
+        }
+
     }
 
     @Override
     public Libro obtener() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(isVacia()){
+            System.out.println("La cola esta vacia, no hay libros");
+            return null;
+        }
+        
+        return inicio.libro;
+
     }
     
     @Override
     public int size(){
-       return 8; 
+       return size; 
     }
 
     @Override
     public boolean isVacia() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return inicio == null;
     }
     
 }
