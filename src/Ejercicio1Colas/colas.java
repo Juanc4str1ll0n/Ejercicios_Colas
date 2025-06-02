@@ -1,15 +1,19 @@
 
-package colasimplementacion;
+package Ejercicio1Colas;
 
 public interface colas {
     
-    
     void encolar(Libro libro );
     
-    void eliminar();
+    void desencolar();
     
     Libro obtener();
     
+    int size();
     
+    boolean isVacia();
+  
+     
     
+
 }

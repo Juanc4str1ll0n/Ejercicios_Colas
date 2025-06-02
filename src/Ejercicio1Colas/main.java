@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package colasimplementacion;
+package Ejercicio1Colas;
 
 /**
  *
  * @author juanc
  */
-public class ColasImplementacion {
+public class main {
 
     /**
      * @param args the command line arguments
